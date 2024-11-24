@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Index Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Navbar toggle for mobile */
+        #menu-toggle:checked + #mobile-menu {
+            display: block;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <!--Navbar-->
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <!-- Navbar -->
     <nav class="bg-blue-600 text-white p-6 fixed w-full top-0 z-10">
-        <div class="flex justify-between items-center">
+        <div class="container mx-auto flex justify-between items-center">
             <div class="text-2xl font-semibold">Index</div>
 
-            <!--Hamburger(Mobile) -->
+            <!-- Hamburger Menu for Mobile -->
             <button id="menu-toggle" class="block lg:hidden">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!--Desktop-->
+            <!-- Desktop Navigation -->
             <div class="hidden lg:flex space-x-6">
                 <a href="index.html" class="hover:text-gray-200">Index</a>
                 <a href="profile.html" class="hover:text-gray-200">Profile</a>
                 <a href="feed.html" class="hover:text-gray-200">Feed</a>
             </div>
-        </div>   
-        <!--Mobile-->
+        </div>
+
+        <!-- Mobile Navigation -->
         <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-4">
             <a href="index.html" class="hover:text-gray-200 block">Index</a>
             <a href="profile.html" class="hover:text-gray-200 block">Profile</a>
@@ -35,48 +44,57 @@
         </div>
     </nav>
 
-    <!--Main-->
-    <main class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mt-20">
-        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6" id="form-description">Login to your account</h1>
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto mt-24 px-4">
+        <div class="bg-white p-8 shadow-lg rounded-lg max-w-lg mx-auto">
+            <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6" id="form-description">Login to Your Account</h1>
 
-        <form id="auth-form">
-            <!--Username-->
-            <div class="mb-4">
-                <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
-                <input type="text" id="username" name="username" required minlength="3" 
-                       class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                       placeholder="Enter your username">
-            </div>
+            <form id="auth-form" class="space-y-4">
+                <!-- Username -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+                    <input type="text" id="username" name="username" required minlength="3"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your username">
+                </div>
 
-            <!--Password-->
-            <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" id="password" name="password" required minlength="8" 
-                       class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                       placeholder="Enter your password">
-            </div>
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                    <input type="password" id="password" name="password" required minlength="8"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your password">
+                </div>
 
-            <!--Confirm Password-->
-            <div class="mb-4 hidden" id="confirm-password-group">
-                <label for="confirm-password" class="block text-sm font-medium text-gray-600">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" minlength="8" 
-                       class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                       placeholder="Confirm your password">
-            </div>
+                <!-- Confirm Password -->
+                <div class="hidden" id="confirm-password-group">
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-600">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" minlength="8"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Confirm your password">
+                </div>
 
-            <!--Buttons-->
-            <div class="flex justify-between mt-6">
-                <button type="button" id="login-button" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Login
-                </button>
-                <button type="button" id="register-button" class="bg-gray-200 text-blue-600 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Register
-                </button>
-            </div>
-        </form>
+                <!-- Buttons -->
+                <div class="flex justify-between items-center">
+                    <button type="button" id="login-button"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Login
+                    </button>
+                    <button type="button" id="register-button"
+                        class="bg-gray-200 text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Register
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
 
-    <!--JS-->
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+        <p>&copy; 2024 Index Page. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
         // Navbar toggle
         const menuToggle = document.getElementById('menu-toggle');
@@ -86,45 +104,42 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Form elements
+        // Form logic
         const formDescription = document.getElementById('form-description');
         const confirmPasswordGroup = document.getElementById('confirm-password-group');
         const loginButton = document.getElementById('login-button');
         const registerButton = document.getElementById('register-button');
 
-        // Toggle Register/Login
         registerButton.addEventListener('click', () => {
-            confirmPasswordGroup.classList.toggle('hidden'); // Show/Hide Confirm Password
+            confirmPasswordGroup.classList.toggle('hidden');
 
             if (confirmPasswordGroup.classList.contains('hidden')) {
-                formDescription.textContent = "Login to your account";
+                formDescription.textContent = "Login to Your Account";
                 loginButton.textContent = "Login";
                 registerButton.textContent = "Register";
             } else {
-                formDescription.textContent = "Register a new account";
+                formDescription.textContent = "Register a New Account";
                 loginButton.textContent = "Register";
                 registerButton.textContent = "Back to Login";
             }
         });
 
-        // Form submission
-        loginButton.addEventListener('click', (e) => {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
+        loginButton.addEventListener('click', () => {
             if (!confirmPasswordGroup.classList.contains('hidden')) {
-                // Register mode: validate passwords
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
                 if (password !== confirmPassword) {
                     alert("Passwords do not match! Please try again.");
                     return;
                 }
                 alert("Registration successful!");
             } else {
-                // Login mode
                 alert("Login successful!");
-                window.location.href = "profile.html"; // Redirect on success
+                window.location.href = "profile.html"; // Redirect on login
             }
         });
     </script>
 </body>
+
 </html>

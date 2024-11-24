@@ -1,65 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <script src="http://cdn.tailwindcss.com"></script>
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-     <!--Navbar-->
-     <nav class="bg-blue-600 text-white p-6 fixed w-full top-0 z-10">
-        <div class="flex justify-between items-center">
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-6 fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
             <div class="text-2xl font-semibold">Profile</div>
 
-            <!--Hamburger(Mobile)-->
-            <button id="menu-toggle" class="block 1g:hidden">
+            <!-- Hamburger Menu for Mobile -->
+            <button id="menu-toggle" class="block lg:hidden">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!--Desktop-->
-            <div class="hidden 1g:flex space-x-6">
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex space-x-6">
                 <a href="index.html" class="hover:text-gray-200">Index</a>
                 <a href="profile.html" class="hover:text-gray-200">Profile</a>
                 <a href="feed.html" class="hover:text-gray-200">Feed</a>
             </div>
         </div>
-            <!--Mobile-->
-            <div id="mobile-menu" class="1g:hidden hidden mt-4 space-y-4">
-                <a href="index.html" class="hover:text-gray-200">Index</a>
-                <a href="profile.html" class="hover:text-gray-200">Profile</a>
-                <a href="feed.html" class="hover:text-gray-200">Feed</a>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-4">
+            <a href="index.html" class="hover:text-gray-200 block">Index</a>
+            <a href="profile.html" class="hover:text-gray-200 block">Profile</a>
+            <a href="feed.html" class="hover:text-gray-200 block">Feed</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-24 px-4 flex flex-col items-center flex-grow">
+        <!-- Profile Card -->
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md text-center">
+            <!-- Profile Image -->
+            <img src="https://via.placeholder.com/150" alt="Profile Image"
+                class="w-24 h-24 rounded-full mx-auto border-4 border-blue-500 mb-4">
+
+            <!-- User Info -->
+            <h1 class="text-2xl font-semibold text-gray-800">[Username]</h1>
+            <p class="text-sm text-gray-600">Joined: [Joined Date]</p>
+
+            <!-- Followers and Following -->
+            <div class="flex justify-center space-x-8 mt-4 text-gray-700">
+                <div>
+                    <p class="text-xl font-bold">[FollowersCount]</p>
+                    <p class="text-sm">Followers</p>
+                </div>
+                <div>
+                    <p class="text-xl font-bold">[FollowingCount]</p>
+                    <p class="text-sm">Following</p>
+                </div>
             </div>
-        </nav>
 
-    <!--Profile containe-->
-    <div class="flex justify-center items-start items-center min-h-screen p-4">
+            <!-- Follow Button -->
+            <button id="follow-button"
+                class="bg-blue-600 text-white px-4 py-2 mt-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Follow
+            </button>
+        </div>
 
-        <!--Profile card-->
-        <div class="bg-white p-8 rounded-1g shadow-1g w-full max-w-md">
-            <h1 class="text-2x1 font-semibold text-center text-gray-800 mb-4">Hello, [Username]!</h1>
+        <!-- User Posts Section -->
+        <section class="mt-8 w-full max-w-3xl">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Posts by [Username]</h2>
 
-            <!--Image-->
-            <img src="/profile picture/gandalf_shire_lord_of_the_rings.webp" alt="Profile Image" class="w-24 h-24 rounded-full object-cover border-4 border-blue-500 mb-6">
-
-            <!--Info-->
-            <div>
-                <h1 class="text-3x1 font-semibold text-gray-800 mb-2">[Username]</h1>
-                <p class="text-sm text-gray-600">Joined: [Joined Date]</p>
-
-                <!--Following/Followers-->
-                <div class="flex space-x-6 mt-4 text-gray-700">
-                    <p class="text-sm"><strong>[FollowersCount]</strong>Followers</p>
-                    <p class="text-sm"><strong>[FollowingCount]</strong>Following</p>
+            <!-- Posts List -->
+            <div class="space-y-4">
+                <!-- Post Item Example -->
+                <div class="bg-white p-4 shadow rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800">Post Title 1</h3>
+                    <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="text-right mt-4">
+                        <a href="#" class="text-blue-600 hover:underline">Read more</a>
+                    </div>
                 </div>
 
-
+                <!-- Add more posts as needed -->
+                <div class="bg-white p-4 shadow rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800">Post Title 2</h3>
+                    <p class="text-sm text-gray-600 mt-2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="text-right mt-4">
+                        <a href="#" class="text-blue-600 hover:underline">Read more</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+        <p>&copy; 2024 Profile Page. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Follow Button Logic
+        const followButton = document.getElementById('follow-button');
+        let isFollowing = false;
+
+        followButton.addEventListener('click', () => {
+            isFollowing = !isFollowing;
+            followButton.textContent = isFollowing ? "Unfollow" : "Follow";
+            followButton.classList.toggle("bg-gray-300");
+            followButton.classList.toggle("text-gray-700");
+        });
+    </script>
 </body>
+
 </html>

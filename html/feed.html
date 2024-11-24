@@ -1,38 +1,92 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Feed</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-     <!--Navbar-->
-     <nav class="bg-blue-600 text-white p-6 fixed w-full top-0 z-10">
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-6 fixed w-full top-0 z-10">
         <div class="flex justify-between items-center">
             <div class="text-2xl font-semibold">Feed</div>
 
-            <!--Hamburger(Mobile)-->
-            <button id="menu-toggle" class="block 1g:hidden">
+            <!-- Hamburger Menu for Mobile -->
+            <button id="menu-toggle" class="block lg:hidden">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!--Desktop-->
-            <div class="hidden 1g:flex space-x-6">
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex space-x-6">
                 <a href="index.html" class="hover:text-gray-200">Index</a>
                 <a href="profile.html" class="hover:text-gray-200">Profile</a>
                 <a href="feed.html" class="hover:text-gray-200">Feed</a>
             </div>
         </div>
-            <!--Mobile-->
-            <div id="mobile-menu" class="1g:hidden hidden mt-4 space-y-4">
-                <a href="index.html" class="hover:text-gray-200">Index</a>
-                <a href="profile.html" class="hover:text-gray-200">Profile</a>
-                <a href="feed.html" class="hover:text-gray-200">Feed</a>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-4">
+            <a href="index.html" class="hover:text-gray-200 block">Index</a>
+            <a href="profile.html" class="hover:text-gray-200 block">Profile</a>
+            <a href="feed.html" class="hover:text-gray-200 block">Feed</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-24 px-4 flex-grow">
+        <div class="flex justify-between items-center mb-4">
+            <!-- Search Bar -->
+            <input type="text" placeholder="Search posts..."
+                class="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <!-- Sort Options -->
+            <select
+                class="ml-4 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <option value="recent">Most Recent</option>
+                <option value="popular">Most Popular</option>
+            </select>
+        </div>
+
+        <!-- Post Thumbnails -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Example Post Thumbnail -->
+            <div class="bg-white shadow rounded-lg p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Post Title 1</h2>
+                <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                <a href="#" class="text-blue-600 hover:underline text-sm">Read more</a>
             </div>
-        </nav>
+
+            <div class="bg-white shadow rounded-lg p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Post Title 2</h2>
+                <p class="text-sm text-gray-600 mt-2">Sed do eiusmod tempor incididunt ut labore et dolore...</p>
+                <a href="#" class="text-blue-600 hover:underline text-sm">Read more</a>
+            </div>
+
+            <!-- Add more post thumbnails -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+        <p>&copy; 2024 Feed Page. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
+
 </html>
